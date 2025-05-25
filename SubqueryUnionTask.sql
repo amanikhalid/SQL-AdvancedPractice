@@ -32,6 +32,11 @@ INSERT INTO Trainees VALUES
 (2, 'Salim Al Hinai', 'salim.h@example.com', 'Outsystems', '2025-03-15'),
 (3, 'Fatma Al Amri', 'fatma.a@example.com', 'Database Admin', '2025-05-01');
 
+-- Insert into Applicants
+INSERT INTO Applicants VALUES
+(101, 'Hassan Al Lawati', 'hassan.l@example.com', 'Website', '2025-05-02'),
+(102, 'Layla Al Riyami', 'layla.r@example.com', 'Referral', '2025-05-05'), -- same person as trainee
+(103, 'Aisha Al Farsi', 'aisha.f@example.com', 'Website', '2025-04-28');
 
 
 
