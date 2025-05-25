@@ -23,5 +23,15 @@ CREATE TABLE Applicants (
  AppliedDate DATE
 );
 
+------------------------
+
+--Sample Data
+--Insert into Trainees
+INSERT INTO Trainees VALUES
+(1, 'Layla Al Riyami', 'layla.r@example.com', 'Full Stack .NET', '2025-04-30'),
+(2, 'Salim Al Hinai', 'salim.h@example.com', 'Outsystems', '2025-03-15'),
+(3, 'Fatma Al Amri', 'fatma.a@example.com', 'Database Admin', '2025-05-01');
+
+
 
 
