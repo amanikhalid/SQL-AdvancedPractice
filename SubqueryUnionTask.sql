@@ -250,8 +250,36 @@ COMMIT;
 --o Durability 
 --Changes made to a transaction must remain after it has been committed, even if it crashes.
 
+--8. For each property, write a real-life example that explains it in your own words.
+--Atomicity 
+--Theory: A transaction's operations are either applied successfully or not.
 
+ --Real-life example:
+ --Consider moving funds from your account to your friend's using an ATM. 
+--The bank would be in an invalid state if the ATM took money out of your account but did not transfer it to your friend's account.  Because of atomicity, either:
+ --both activities are successful, or Neither occurs; the funds stay in your account.
 
+--Consistency 
+--Theory: A transaction must adhere to constraints and data types in order to exit the database in a valid state.
 
+ --Real-life example:
+--Suppose you purchase a concert ticket online. 
+--The system may oversell tickets if your reservation is confirmed but it is unable to decrease the number of seats available.
+--Every transaction complies with regulations (such as "available_seats ≥ 0") when there is consistency.
 
+--Isolation
+--Theory: Concurrent transactions shouldn't affect one another.
+
+ --Real-life example: 
+  --Two individuals attempt to reserve the hotel's final room simultaneously. 
+--Both transactions could see the room as available and make a reservation if isolation was not present. 
+--This is avoided by isolation, which ensures that only one person succeeds by managing one booking at a time under the hood.
+
+--Durability
+--Theory: a transaction remains committed even in the event of a system failure.
+
+--Real-life example:  
+--You place an online order successfully, and your payment has been approved. 
+--You expect the order to be recorded even if the server crashes right after. 
+--Durability guarantees that the data is permanently stored by the system (e.g., to disk or logs).
 
