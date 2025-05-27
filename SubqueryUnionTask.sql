@@ -133,6 +133,32 @@ FROM (
     GROUP BY department_id
 ) AS DeptAvg;
 
+--4. Subquery in HAVING Clause
+SELECT department_id, COUNT(*) AS emp_count
+FROM Employee
+GROUP BY department_id
+HAVING COUNT(*) > (
+    SELECT AVG(emp_count)
+    FROM (
+        SELECT COUNT(*) AS emp_count
+        FROM Employee
+        GROUP BY department_id
+    ) AS DeptCounts
+);
+
+--5. Subquery in JOIN (FROM or JOIN as subquery)
+SELECT s.name, b.branch_name
+FROM Staff s
+JOIN (
+    SELECT branch_id
+    FROM Staff
+    GROUP BY branch_id
+    HAVING COUNT(*) > 5
+) AS BigBranches
+ON s.branch_id = BigBranches.branch_id;
+
+
+
 
 
 
