@@ -188,6 +188,28 @@ COMMIT;  -- Finalize changes
 -- If something goes wrong, you can use:
 -- ROLLBACK;  -- Undo changes
 
+--5. Task: 
+--o Write a script that: 
+--▪ Starts a transaction 
+--▪ Tries to insert two new applicants 
+--▪ The second insert should have a duplicate ApplicantID (to force failure) 
+--▪ Rollback the whole transaction if any error occurs
+
+BEGIN TRANSACTION;
+
+BEGIN TRY
+    INSERT INTO Applicant (ApplicantID, Name, Email)
+    VALUES (101, 'Ellesa AlArs', 'ellesa@example.com');
+
+    INSERT INTO Applicant (ApplicantID, Name, Email)
+    VALUES (101, 'Zeyad AlRawahi', 'zeyad@example.com');  -- Duplicate
+
+    COMMIT;
+END TRY
+BEGIN CATCH
+    ROLLBACK;
+    PRINT 'Transaction failed and was rolled back.';
+END CATCH;
 
 
 
