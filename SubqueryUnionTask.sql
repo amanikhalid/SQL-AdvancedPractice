@@ -178,6 +178,15 @@ DELETE FROM Applicants WHERE Email IN ( SELECT Email FROM Trainees );
 --A series of one or more SQL operations carried out as a single work unit.
 --In order to preserve data integrity, it makes sure that either all operations are completed or none are applied.
 
+--How to write transaction blocks in your database tool (BEGIN TRANSACTION, COMMIT, ROLLBACK)?
+
+BEGIN TRANSACTION;
+-- SQL statements go here
+-- e.g., INSERT, UPDATE, DELETE
+
+COMMIT;  -- Finalize changes
+-- If something goes wrong, you can use:
+-- ROLLBACK;  -- Undo changes
 
 
 
