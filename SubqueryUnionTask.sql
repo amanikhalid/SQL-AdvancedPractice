@@ -66,6 +66,13 @@ SELECT T.FullName, T.Email
 FROM Trainees T
 INNER JOIN Applicants A ON T.Email = A.Email;
 
+-- Part 2: DROP, DELETE, TRUNCATE Observation
+
+-- 4. Try DELETE FROM Trainees WHERE Program = 'Outsystems'.
+-- o Check if the table structure still exists.
+DELETE FROM Trainees WHERE Program = 'Outsystems';
+
+-- Observation: Row deleted, but table and other data remain.
 
 
 
