@@ -211,5 +211,33 @@ BEGIN CATCH
     PRINT 'Transaction failed and was rolled back.';
 END CATCH;
 
+--6. Add this logic: 
+--BEGIN TRANSACTION; 
+--INSERT INTO Applicants VALUES (104, 'Zahra Al Amri', 'zahra.a@example.com', 'Referral', '2025-05-10'); 
+--INSERT INTO Applicants VALUES (104, 'Error User', 'error@example.com', 'Website', '2025-05-11'); -- Duplicate ID 
+--COMMIT; 
+-- Or use ROLLBACK if needed
+
+-- Disable autocommit to manage the transaction manually
+SET autocommit = 0;
+
+START TRANSACTION;
+
+-- Try to insert two applicants
+INSERT INTO Applicants
+VALUES (104, 'Zahra Al Amri', 'zahra.a@example.com', 'Referral', '2025-05-10');
+
+-- This insert will fail due to duplicate ApplicantID
+INSERT INTO Applicants
+VALUES (104, 'Error User', 'error@example.com', 'Website', '2025-05-11');
+
+-- Commit if everything worked (won't be reached due to error above)
+COMMIT;
+
+-- Rollback should be issued manually after the error is caught
+-- ROLLBACK;
+
+
+
 
 
