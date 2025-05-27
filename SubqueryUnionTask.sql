@@ -50,5 +50,16 @@ SELECT FullName, Email FROM Trainees
 UNION
 SELECT FullName, Email FROM Applicants;
 
+-- 2. Now use UNION ALL. What changes in the result?
+-- o Explain why one name appears twice.
+
+SELECT FullName, Email FROM Trainees
+UNION ALL
+SELECT FullName, Email FROM Applicants;
+
+ -- Layla Al Riyami appears twice in UNION ALL because she is in both tables.-- 
+ --  UNION removes duplicates; UNION ALL includes all records.-- 
+
+
 
 
