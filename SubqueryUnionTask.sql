@@ -165,7 +165,10 @@ SELECT *
 FROM Trainees
 WHERE Email IN (SELECT Email FROM Applicants);
 
-
+-- 3. Extra Challenge:
+-- o Write a DML statement (like UPDATE or DELETE) that uses a subquery in the WHERE clause.
+-- o Example: Delete all applicants whose email matches someone in the trainees table.
+DELETE FROM Applicants WHERE Email IN ( SELECT Email FROM Trainees );
 
 
 
