@@ -157,6 +157,13 @@ JOIN (
 ) AS BigBranches
 ON s.branch_id = BigBranches.branch_id;
 
+-- 2. Task:
+-- o Write a query to find all trainees whose emails appear in the applicants table.
+-- o You must use a subquery inside a WHERE clause.
+
+SELECT *
+FROM Trainees
+WHERE Email IN (SELECT Email FROM Applicants);
 
 
 
