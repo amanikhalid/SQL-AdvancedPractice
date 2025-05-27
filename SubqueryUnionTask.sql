@@ -237,6 +237,20 @@ COMMIT;
 -- Rollback should be issued manually after the error is caught
 -- ROLLBACK;
 
+------------------------
+--ACID Properties Exploration 
+--Goal: Learn the theory behind reliable transactions. 
+--7. Research and summarize each of the ACID properties: 
+--o Atomicity 
+--A transaction must go through all of its steps successfully, or none at all.
+--o Consistency 
+--The database must be moved from one valid state to another by a transaction.
+--o Isolation 
+--When transactions are carried out concurrently, they shouldn't conflict with one another.
+--o Durability 
+--Changes made to a transaction must remain after it has been committed, even if it crashes.
+
+
 
 
 
