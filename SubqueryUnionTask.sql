@@ -170,6 +170,15 @@ WHERE Email IN (SELECT Email FROM Applicants);
 -- o Example: Delete all applicants whose email matches someone in the trainees table.
 DELETE FROM Applicants WHERE Email IN ( SELECT Email FROM Trainees );
 
+------------------------
+--Batch Script & Transactions 
+-- Goal: Understand how to safely execute multiple SQL statements as a unit. 
+--4. Research: 
+--o What is a SQL transaction?
+--A series of one or more SQL operations carried out as a single work unit.
+--In order to preserve data integrity, it makes sure that either all operations are completed or none are applied.
+
+
 
 
 
