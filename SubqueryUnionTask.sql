@@ -107,6 +107,33 @@ WHERE salary > (
 );
 --This returns employees earning more than the average salary in their own department.
 
+--Where can we use subqueries? (e.g., in SELECT, WHERE, FROM)
+--A SQL statement can use subqueries in a number of important clauses to aid in data computation or retrieval.
+--Here's an explanation of how and where to use them:
+
+--1. Subquery in SELECT Clause
+SELECT name, salary,
+       (SELECT AVG(salary) FROM Employee) AS avg_company_salary
+FROM Employee;
+
+--2. Subquery in WHERE Clause
+SELECT name
+FROM Employee
+WHERE department_id IN (
+    SELECT id
+    FROM Department
+    WHERE location = 'Muscat'
+);
+
+--3. Subquery in FROM Clause
+SELECT MAX(avg_salary) AS max_avg_salary
+FROM (
+    SELECT department_id, AVG(salary) AS avg_salary
+    FROM Employee
+    GROUP BY department_id
+) AS DeptAvg;
+
+
 
 
 
