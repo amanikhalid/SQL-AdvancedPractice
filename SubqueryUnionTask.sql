@@ -74,7 +74,10 @@ DELETE FROM Trainees WHERE Program = 'Outsystems';
 
 -- Observation: Row deleted, but table and other data remain.
 
-
+-- 5. Try TRUNCATE TABLE Applicants.
+-- o What happens to the data? Can you roll it back?
+TRUNCATE TABLE Applicants;
+-- Observation: All rows removed quickly. Cannot roll back in most DBs (non-logged operation).
 
 
 
