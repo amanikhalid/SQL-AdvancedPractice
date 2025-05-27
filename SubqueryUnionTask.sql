@@ -60,6 +60,14 @@ SELECT FullName, Email FROM Applicants;
  -- Layla Al Riyami appears twice in UNION ALL because she is in both tables.-- 
  --  UNION removes duplicates; UNION ALL includes all records.-- 
 
+-- 3. Find people who are in both tables.
+-- o You must use INTERSECT if supported, or simulate it using INNER JOIN on Email.
+SELECT T.FullName, T.Email
+FROM Trainees T
+INNER JOIN Applicants A ON T.Email = A.Email;
+
+
+
 
 
 
