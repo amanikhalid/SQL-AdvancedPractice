@@ -38,5 +38,17 @@ INSERT INTO Applicants VALUES
 (102, 'Layla Al Riyami', 'layla.r@example.com', 'Referral', '2025-05-05'), -- same person as trainee
 (103, 'Aisha Al Farsi', 'aisha.f@example.com', 'Website', '2025-04-28');
 
+------------------------
+select * from Applicants
+select * from Trainees
+ 
+-- Part 1: UNION Practice
+-- 1. List all unique people who either trained or applied for a job.
+-- o Show their full names and emails.
+-- o Use UNION (not UNION ALL) to avoid duplicates.
+SELECT FullName, Email FROM Trainees
+UNION
+SELECT FullName, Email FROM Applicants;
+
 
 
