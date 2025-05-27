@@ -86,5 +86,27 @@ DROP TABLE Applicants;
 -- Example:
 -- SELECT * FROM Applicants; -- Will fail
 
+-- Part 3: Self-Discovery & Applied Exploration
+-- In this section, you’ll independently research, experiment, and apply advanced SQL concepts.
+-- Follow the guided prompts below.
+-- Subquery Exploration
+-- Goal: Understand what a subquery is and how it's used inside SQL commands.
+
+--1. Research: 
+--o What is a subquery in SQL?
+--A subquery is a query inside another SQL query, sometimes referred to as an inner query or nested query. 
+--It is employed to carry out intermediate computations or data retrievals that are necessary for the main (outer) query.
+ 
+--Example:Correlated Subquery:
+SELECT name
+FROM Employee e
+WHERE salary > (
+    SELECT AVG(salary)
+    FROM Employee
+    WHERE department_id = e.department_id
+);
+--This returns employees earning more than the average salary in their own department.
+
+
 
 
