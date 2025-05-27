@@ -79,5 +79,12 @@ DELETE FROM Trainees WHERE Program = 'Outsystems';
 TRUNCATE TABLE Applicants;
 -- Observation: All rows removed quickly. Cannot roll back in most DBs (non-logged operation).
 
+-- 6. Try DROP TABLE Applicants.
+-- o What happens if you run a SELECT after that?
+DROP TABLE Applicants;
+-- Observation: Table is permanently removed. SELECT after DROP gives an error.
+-- Example:
+-- SELECT * FROM Applicants; -- Will fail
+
 
 
