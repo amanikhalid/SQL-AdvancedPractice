@@ -96,4 +96,26 @@ BEGIN
     RETURN
 END
 
+-- 7.  Create a cursor for Employee table that increases Employee salary by 10% if Salary <3000 and increases it by 20% if Salary >=3000. Use company DB 
+USE Company_SD
+SELECT * FROM Employee
+DECLARE @EmpID INT, @Salary DECIMAL(10,2)
 
+DECLARE salary_cursor CURSOR FOR
+SELECT SSN, Salary FROM Employee
+
+OPEN salary_cursor
+FETCH NEXT FROM salary_cursor INTO @EmpID, @Salary
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    IF @Salary < 3000
+        UPDATE Employee SET Salary = Salary * 1.10 WHERE SSN = @EmpID
+    ELSE
+        UPDATE Employee SET Salary = Salary * 1.20 WHERE SSN = @EmpID
+
+    FETCH NEXT FROM salary_cursor INTO @EmpID, @Salary
+END
+
+CLOSE salary_cursor
+DEALLOCATE salary_cursor
