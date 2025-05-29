@@ -24,4 +24,15 @@ BEGIN
     RETURN
 END
 
+-- 3.   Create inline function that takes Student No and returns Department Name with Student full name. 
+CREATE FUNCTION dbo.GetStudentDeptName (@StudentNo INT)
+RETURNS TABLE
+AS
+RETURN ( SELECT D.Dept_Name, S.St_Fname + ' ' + S.St_Lname AS FullName
+FROM Student S
+INNER JOIN Department D ON S.Dept_Id = D.Dept_Id
+WHERE S.St_Id = @StudentNo )
+
+
+
 
