@@ -33,6 +33,33 @@ FROM Student S
 INNER JOIN Department D ON S.Dept_Id = D.Dept_Id
 WHERE S.St_Id = @StudentNo )
 
+-- 4.  Create a scalar function that takes Student ID and returns a message to user  
+-- a.  If first name and Last name are null then display 'First name & last name are null' 
+-- b.  If First name is null then display 'first name is null' 
+-- c.  If Last name is null then display 'last name is null' 
+-- d.  Else display 'First name & last name are not null' 
+ 
+CREATE FUNCTION dbo.CheckStudentName (@StudentID INT)
+RETURNS VARCHAR(100)
+AS
+BEGIN
+    DECLARE @Fname VARCHAR(50), @Lname VARCHAR(50), @Msg VARCHAR(100)
+
+    SELECT @Fname = St_Fname, @Lname = St_Lname FROM Student WHERE St_Id = @StudentID
+
+    IF @Fname IS NULL AND @Lname IS NULL
+        SET @Msg = 'First name & last name are null'
+    ELSE IF @Fname IS NULL
+        SET @Msg = 'first name is null'
+    ELSE IF @Lname IS NULL
+        SET @Msg = 'last name is null'
+    ELSE
+        SET @Msg = 'First name & last name are not null'
+
+    RETURN @Msg
+END
+
+
 
 
 
