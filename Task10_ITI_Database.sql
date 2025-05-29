@@ -10,3 +10,18 @@ BEGIN
     RETURN DATENAME(MONTH, @inputDate)
 END
 
+-- 2.   Create a multi-statements table-valued function that takes 2 integers and returns the values between them. 
+CREATE FUNCTION dbo.GetValuesBetween (@Start INT, @End INT)
+RETURNS @Result TABLE (Number INT)
+AS
+BEGIN
+    DECLARE @i INT = @Start
+    WHILE @i <= @End
+    BEGIN
+        INSERT INTO @Result VALUES (@i)
+        SET @i += 1
+    END
+    RETURN
+END
+
+
