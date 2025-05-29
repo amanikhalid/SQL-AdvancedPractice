@@ -76,6 +76,24 @@ RETURN (
         Ins.Ins_Id = @MgrID
 )
 
+-- 6.  Create multi-statements table-valued function that takes a string 
+-- If string='first name' returns student first name 
+-- If string='last name' returns student last name  
+-- If string='full name' returns Full Name from student table 
+-- Note: Use “ISNULL” function 
+ 
+CREATE FUNCTION dbo.GetStudentNamePart (@Type VARCHAR(20))
+RETURNS @Result TABLE (NamePart VARCHAR(100))
+AS
+BEGIN
+    IF @Type = 'first name'
+        INSERT INTO @Result SELECT ISNULL(St_Fname, 'N/A') FROM Student
+    ELSE IF @Type = 'last name'
+        INSERT INTO @Result SELECT ISNULL(St_Lname, 'N/A') FROM Student
+    ELSE IF @Type = 'full name'
+        INSERT INTO @Result SELECT ISNULL(St_Fname, '') + ' ' + ISNULL(St_Lname, '') FROM Student
 
+    RETURN
+END
 
 
