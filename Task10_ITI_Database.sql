@@ -59,6 +59,22 @@ BEGIN
     RETURN @Msg
 END
 
+-- 5.  Create inline function that takes integer which represents manager ID and displays department name, Manager Name and hiring date  
+CREATE FUNCTION dbo.GetManagerInfo (@MgrID INT)
+RETURNS TABLE
+AS
+RETURN (
+    SELECT 
+        D.Dept_Name, 
+        Ins.Ins_Name AS ManagerName, 
+        D.Manager_hiredate
+    FROM 
+        Department D
+    JOIN 
+        Instructor Ins ON D.Dept_Id = Ins.Dept_Id
+    WHERE 
+        Ins.Ins_Id = @MgrID
+)
 
 
 
